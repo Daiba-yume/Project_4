@@ -13,7 +13,7 @@
 
 Voici un aperçu du projet :
 
-![GameOn](./images/HomePage.png)
+![GameOn](./starterOnly/asset/HomePage.png)
 
 ### 🔧 Issues 🛠️
 
