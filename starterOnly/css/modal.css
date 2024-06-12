@@ -51,6 +51,7 @@ img {
   text-decoration: none;
   font-size: 20px;
   font-family: Roboto, sans-serif;
+  font-weight: 500;
 }
 
 .topnav a:hover {
@@ -68,6 +69,10 @@ img {
 
 .topnav .icon {
   display: none;
+}
+
+.fa {
+  color: #ff001b;
 }
 
 @media screen and (max-width: 768px) {
@@ -410,7 +415,6 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -419,7 +423,7 @@ input[data-error]::after {
   margin-bottom: 10px;
 }
 .hero-content {
-  padding: 51px 67px;
+  padding: 71px 67px;
   grid-column: span 4;
   background: #232323;
   color: #fff;
@@ -500,12 +504,12 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     white-space: normal;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .hero-img img {
     border-radius: 10px;
