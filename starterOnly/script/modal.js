@@ -228,12 +228,6 @@ function sendForm() {
     document.getElementById("thanks").style.display = "flex";
     document.getElementById("close-registration").style.display = "block";
     document.getElementById("close-registration-text").style.display = "flex";
-    console.log(`Voici les données saisies:
-    ${formDataPrenom.value},
-    ${formDataNom.value},
-    ${formDataEmail.value},
-    ${formDataTournois.value} tournois,
-    et ${document.querySelector("input[name='location']:checked").value}`);
   } else {
     alert("Formulaire incomplet"); // Alerte si le formulaire n'est pas complet
   }
