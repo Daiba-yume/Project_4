@@ -24,6 +24,7 @@ body {
 p {
   margin-bottom: 0;
   padding: 0.5vw;
+  font-weight: 400;
 }
 
 img {
@@ -169,6 +170,7 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
+  background-color: white;
   /* background-color: rgba(26, 39, 156, 0.4);*/
 }
 
@@ -554,6 +556,7 @@ footer {
   display: none;
   color: red;
 }
+
 .checkbox-return {
   padding-top: 0;
   font-size: 15px;
@@ -562,12 +565,14 @@ footer {
   display: none;
   color: red;
 }
+
 #thanks {
   display: none;
   align-items: center;
   justify-content: center;
-  min-height: 740px;
+  min-height: 650px;
 }
+
 #close-registration {
   display: none;
   background: #fe142f;
@@ -580,6 +585,7 @@ footer {
   border: 0;
   max-width: 235px;
 }
+
 #close-registration-text {
   display: none;
   justify-content: center;
