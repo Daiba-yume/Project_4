@@ -61,11 +61,11 @@ img {
   text-decoration: underline;
 }
 
-/* .topnav a.active {
+.topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
-} */
+}
 
 .topnav .icon {
   display: none;
@@ -101,7 +101,7 @@ img {
   }
 }
 
-/* @media screen and (max-width: 540px) {
+@media screen and (max-width: 540px) {
   .topnav a {
     display: none;
   }
@@ -110,7 +110,7 @@ img {
     display: block;
     margin-top: -15px;
   }
-} */
+}
 
 main {
   font-size: 130%;
