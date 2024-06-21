@@ -214,7 +214,7 @@ function sendForm() {
   const validLocation = checkLocations(formDataLocations);
   const validChecker = checkCGU(formDataCheckbox);
 
-  // Si tous les champs sont valides, cache le formulaire, affiche le message de remerciement et affiche les données saisies dans la console
+  // Si tous les champs sont valides, cache le formulaire, affiche le message de remerciement
   if (
     validName &&
     validLastName &&
