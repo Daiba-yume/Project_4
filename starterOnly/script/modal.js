@@ -50,52 +50,61 @@ const formDataEmail = document.querySelector("#email");
 const formDataBirthdate = document.querySelector("#birthdate");
 const formDataTournois = document.querySelector("#quantity");
 
+// Fonction pour afficher un message de succès
+function showSuccessMessage(input, message) {
+  let feedback = input.nextElementSibling;
+  feedback.innerHTML = message;
+  feedback.style.color = "green";
+  feedback.style.display = "block";
+}
+
+// Fonction pour afficher un message d'erreur
+function showErrorMessage(input, message) {
+  let feedback = input.nextElementSibling;
+  feedback.innerHTML = message;
+  feedback.style.color = "red";
+  feedback.style.display = "block";
+}
+
 // Vérification du prénom et du nom
-formDataPrenom.addEventListener("change", function () {
+formDataPrenom.addEventListener("input", function () {
   checkName(this);
 });
 
-formDataNom.addEventListener("change", function () {
+formDataNom.addEventListener("input", function () {
   checkName(this);
 });
 
 // Fonction pour vérifier le nom/prénom avec une regexp
 function checkName(input) {
-  // Vérifie que le nom/prénom ne contient que des lettres et des tirets, et est entre 2 et 30 caractères
-  let nameRegExp = new RegExp("^[A-Za-z-]{2,30}$", "g");
-  let testName = nameRegExp.test(input.value); // Teste la valeur du champ avec l'expression régulière
-  if (testName) {
-    input.nextElementSibling.innerHTML = "Champ valide.";
-    input.nextElementSibling.style.color = "green"; // Affiche un message de succès en vert
+  let nameRegExp = /^[A-Za-z-]{2,30}$/; // Expression régulière simplifiée
+  let isValid = nameRegExp.test(input.value);
+
+  if (isValid) {
+    showSuccessMessage(input, "Champ valide.");
     return true;
   } else {
-    input.nextElementSibling.innerHTML = "Champ vide ou incorrect.";
-    input.nextElementSibling.style.color = "red"; // Affiche un message d'erreur en rouge
+    showErrorMessage(input, "Champ vide ou incorrect.");
     return false;
   }
 }
 
 // Vérification de l'adresse e-mail
-formDataEmail.addEventListener("change", function () {
+formDataEmail.addEventListener("input", function () {
   checkEmail(this);
 });
 
 // Fonction pour vérifier l'adresse e-mail avec une regexp
 function checkEmail(input) {
-  // Vérifie l'adresse e-mail
-  let emailRegExp = new RegExp(
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    "g"
-  );
-  let testEmail = emailRegExp.test(input.value); // Teste la valeur du champ avec l'expression régulière
-  if (testEmail) {
-    input.nextElementSibling.innerHTML = "Champ valide.";
-    input.nextElementSibling.style.color = "green"; // Affiche un message de succès en vert
+  let emailRegExp =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  let isValid = emailRegExp.test(input.value);
+
+  if (isValid) {
+    showSuccessMessage(input, "Champ valide.");
     return true;
   } else {
-    input.nextElementSibling.innerHTML =
-      "Champ vide ou email saisie incorrecte.";
-    input.nextElementSibling.style.color = "red"; // Affiche un message d'erreur en rouge
+    showErrorMessage(input, "Champ vide ou email saisi incorrect.");
     return false;
   }
 }
@@ -105,30 +114,32 @@ formDataBirthdate.addEventListener("change", function () {
   checkBirthdate(this);
 });
 
+// Vérification de la date de naissance
+formDataBirthdate.addEventListener("input", function () {
+  checkBirthdate(this);
+});
+
 // Fonction pour vérifier la date de naissance avec une regexp
 function checkBirthdate(input) {
-  // Vérifie une date au format AAAA-MM-JJ
-  let birthdateRegExp = new RegExp(
-    "^(19|20)[0-9]{2}[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$"
-  );
-  let testBirthdate = birthdateRegExp.test(input.value); // Teste la valeur du champ avec l'expression régulière
+  let birthdateRegExp = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+  let isValidFormat = birthdateRegExp.test(input.value);
 
-  let date1 = new Date(input.value).getTime(); // Date de naissance
-  let date2 = new Date().getTime(); // Date actuelle
+  if (isValidFormat) {
+    let birthdate = new Date(input.value);
+    let currentDate = new Date();
 
-  if (testBirthdate && date1 < date2) {
-    input.nextElementSibling.innerHTML = "Champ valide.";
-    input.nextElementSibling.style.color = "green"; // Affiche un message de succès en vert
-    return true;
-  } else if (date1 > date2) {
-    input.nextElementSibling.innerHTML =
-      "Vous ne pouvez pas être né(e) demain!";
-    input.nextElementSibling.style.color = "red"; // Affiche un message d'erreur en rouge
-    return false;
-  } else if (!testBirthdate) {
-    input.nextElementSibling.innerHTML =
-      "Veuillez saisir votre date de naissance.";
-    input.nextElementSibling.style.color = "red"; // Affiche un message d'erreur en rouge
+    if (birthdate > currentDate) {
+      showErrorMessage(
+        input,
+        "La date de naissance ne peut pas être dans le futur."
+      );
+      return false;
+    } else {
+      showSuccessMessage(input, "Champ valide.");
+      return true;
+    }
+  } else {
+    showErrorMessage(input, "Format de date incorrect (AAAA-MM-JJ).");
     return false;
   }
 }
@@ -246,13 +257,13 @@ function resetForm() {
   document.getElementById("close-registration").style.display = "none";
   document.getElementById("close-registration-text").style.display = "block";
 
-  // Réinitialiser les messages d'erreur
-  const errorMessages = document.querySelectorAll(
+  // Réinitialiser tous les messages associés aux champs du formulaire
+  const feedbackMessages = document.querySelectorAll(
     ".formData .error-message, .formData .msg-regexp"
   );
-  errorMessages.forEach((message) => {
-    message.innerHTML = "";
-    message.style.display = "none";
-    message.style.color = "";
+  feedbackMessages.forEach((message) => {
+    message.innerHTML = ""; // Vide le contenu du message
+    message.style.display = "none"; // Cache le message
+    message.style.color = ""; // Réinitialise la couleur du texte
   });
 }
