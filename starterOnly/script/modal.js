@@ -27,12 +27,17 @@ function launchModal() {
 
 // Événement pour fermer la modale depuis la page de remerciements
 btnClose.addEventListener("click", function () {
-  modalbg.style.display = "none";
+  closeModal();
+  resetForm();
 });
 
 // Événement pour fermer la modale
-closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
-
+closeBtn.forEach((btn) =>
+  btn.addEventListener("click", function () {
+    closeModal();
+    resetForm();
+  })
+);
 // Fonction pour cacher la modale
 function closeModal() {
   modalbg.style.display = "none";
@@ -231,4 +236,23 @@ function sendForm() {
   } else {
     alert("Formulaire incomplet"); // Alerte si le formulaire n'est pas complet
   }
+}
+
+// Fonction pour réinitialiser le formulaire
+function resetForm() {
+  form.reset(); // Réinitialise le formulaire
+  document.getElementById("registration").style.display = "block";
+  document.getElementById("thanks").style.display = "none";
+  document.getElementById("close-registration").style.display = "none";
+  document.getElementById("close-registration-text").style.display = "block";
+
+  // Réinitialiser les messages d'erreur
+  const errorMessages = document.querySelectorAll(
+    ".formData .error-message, .formData .msg-regexp"
+  );
+  errorMessages.forEach((message) => {
+    message.innerHTML = "";
+    message.style.display = "none";
+    message.style.color = "";
+  });
 }
