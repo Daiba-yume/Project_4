@@ -1,21 +1,14 @@
-# Projet GameOn
+<!-- markdownlint-disable -->
 
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+<p align="center">
+  <img src="./starterOnly/asset/Logo.png" alt="Aperçu du projet" width="200" />
+</p>
 
-## 🎮 Projet 4
+# 🎮 GameOn - Projet OpenClassrooms
 
 **Objectif :** Ajouter le code JavaScript manquant pour que le formulaire soit pleinement fonctionnel.
 
-### 🌟 Aperçu du Projet
-
-Voici un aperçu du projet :
-
-![GameOn](./starterOnly/asset/HomePage.png)
-
-### 🔧 Issues 🛠️
+## 🔧 Missions 🛠️
 
 1. **Ajouter la fonctionnalité au bouton (x)**
 
@@ -51,7 +44,31 @@ Voici un aperçu du projet :
    - Corriger les erreurs d'affichage existantes.
    - Tester toutes les fonctionnalités des boutons et des entrées de formulaire avec des valeurs correctes et incorrectes.
 
-### 🧪 Tests
+## Technologies utilisées
 
-- **Chrome** : Dernière version (desktop et mobile)
-- **Firefox** : Dernière version (desktop et mobile)
+- ![HTML5](https://img.shields.io/badge/HTML5-Markup-E34F26?logo=html5&logoColor=white)
+- ![CSS3](https://img.shields.io/badge/CSS3-Styles-1572B6?logo=css3&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black)
+- ![Lighthouse](https://img.shields.io/badge/Lighthouse-Performance-F44B21?logo=googlelighthouse&logoColor=white)
+
+## Usage
+
+1. Cloner le repo `https://github.com/Daiba-yume/Project_4.git`
+2. Installer les dépendances : `npm install`
+3. Lancer le projet : `npm run dev`
+
+---
+
+## Auteur
+
+Daïba Yume :purple_heart:
+
+## 📄 Licence
+
+📝 Projet pédagogique — OpenClassrooms
+
+---
+
+## 💮 Demo
+
+https://gameon-delta.vercel.app/
