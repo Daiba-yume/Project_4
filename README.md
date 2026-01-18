@@ -70,4 +70,4 @@ Daïba Yume :purple_heart:
 
 ## 💮 Demo
 
-https://gameon-delta.vercel.app/
+[GameOn](https://gameon-delta.vercel.app/)
