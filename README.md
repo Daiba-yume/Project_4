@@ -55,7 +55,6 @@
 
 1. Cloner le repo `https://github.com/Daiba-yume/Project_4.git`
 2. Installer les dépendances : `npm install`
-3. Lancer le projet : `npm run dev`
 
 ---
 
